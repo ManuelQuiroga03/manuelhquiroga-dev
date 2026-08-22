@@ -108,7 +108,7 @@
   
   {#if viewMode === 'interactive'}
     <!-- Nintendo Switch Interactive Console Layer (Overlays the page during crossfade) -->
-    <main out:fade={{ duration: 800 }} class="absolute inset-0 z-10 w-full h-full flex flex-col items-center justify-between interactive-bg p-4">
+    <main out:fade={{ duration: 800 }} class="fixed inset-0 z-10 w-full h-full flex flex-col items-center justify-between interactive-bg p-4 overflow-y-auto">
       
       <!-- Top Spacing -->
       <div class="h-2"></div>
@@ -118,8 +118,8 @@
         <ConsoleView bind:assemblyState={assemblyState} onViewClassic={handleViewClassic} />
       </div>
 
-      <!-- Custom Interactive Footer (Only on Console Screen, styled like colleague's UI) -->
-      <div class="w-full max-w-5xl px-4 pb-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-400 select-none border-t border-slate-800/40 pt-4 mt-2">
+      <!-- Custom Interactive Footer (Only on Console Screen, hidden on mobile for clean fit) -->
+      <div class="hidden md:flex w-full max-w-5xl px-4 pb-6 flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-400 select-none border-t border-slate-800/40 pt-4 mt-2">
         <!-- Left Side: Social Icon Buttons -->
         <div class="flex items-center justify-center gap-2">
           <!-- Email Copy/Open -->
