@@ -83,7 +83,7 @@ export const cvData: CVData = {
     email: "quirogamanuel21@gmail.com",
     github: "https://github.com/ManuelQuiroga03",
     linkedin: "https://www.linkedin.com/in/manuelhquiroga",
-    website: "https://manuelquiroga.dev",
+    website: "https://manuelhquiroga-dev.vercel.app/",
     pdfUrl: undefined // Configurar liga de Dropbox/Drive aquí en el futuro (ej. "https://dl.dropboxusercontent.com/s/...")
   },
   experience: [
@@ -128,15 +128,6 @@ export const cvData: CVData = {
     },
     {
       id: "proj-2",
-      title: "SAP Business One SOAP Integrator",
-      description: "Middleware de integración empresarial encargado del consumo de servicios SOAP para la sincronización bidireccional de clientes y documentos de venta entre portales web externos y SAP B1.",
-      technologies: ["C#", "Servicios SOAP", "SAP Business One", "SQL Server"],
-      githubUrl: undefined,
-      liveUrl: undefined,
-      featured: true
-    },
-    {
-      id: "proj-3",
       title: "FacturaPDF - Procesador Batch & Visor CFDI 4.0",
       description: "Aplicación nativa para la conversión masiva paralela de XML CFDI a PDF personalizable. Monitorea directorios en segundo plano, aplica plantillas XSLT dinámicas e incluye un visor y editor integrado.",
       technologies: ["C#", ".NET", "MAUI", "XSLT", "XML", "CFDI 4.0"],
@@ -145,7 +136,7 @@ export const cvData: CVData = {
       featured: false
     },
     {
-      id: "proj-4",
+      id: "proj-3",
       title: "XML CFDI 4.0 Mock Generator",
       description: "Suite local en navegador para la generación masiva de XMLs fiscales CFDI 4.0 simulando complementos como Carta Porte, Nómina y REP con Timbre Fiscal Digital para pipelines de QA.",
       technologies: ["TypeScript", "Vite", "HTML5", "CSS3", "CFDI 4.0"],
@@ -154,7 +145,7 @@ export const cvData: CVData = {
       featured: true
     },
     {
-      id: "proj-5",
+      id: "proj-4",
       title: "Xamai MPX 2.0",
       description: "Plataforma empresarial para la visualización de KPIs de negocio y reportes financieros. Participación en el desarrollo del frontend responsivo y modular con JavaScript y Angular.",
       technologies: ["JavaScript", "Angular", "HTML5", "CSS3", "Git"],
@@ -163,7 +154,7 @@ export const cvData: CVData = {
       featured: false
     },
     {
-      id: "proj-6",
+      id: "proj-5",
       title: "SmartRAG Enterprise AI",
       description: "Sistema de IA Privada y RAG autónomo con arquitectura de autocorregibilidad mediante LangGraph. Indexa y consulta documentos confidenciales on-premise ejecutando modelos LLM locales sin nube.",
       technologies: ["React", "TypeScript", "Python", "FastAPI", "LangGraph", "ChromaDB", "Tauri"],
@@ -172,7 +163,7 @@ export const cvData: CVData = {
       featured: true
     },
     {
-      id: "proj-7",
+      id: "proj-6",
       title: "DevKeep",
       description: "Plataforma web para organizar notas de aprendizaje y biblioteca interactiva de comandos CLI (.NET, Docker, Git) con copia en 1-clic y buscador global instantáneo Ctrl+K.",
       technologies: ["React", "TypeScript", ".NET", "C#", "PostgreSQL", "Tailwind CSS", "Docker", "Podman"],

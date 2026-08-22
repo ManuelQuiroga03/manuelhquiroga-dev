@@ -33,6 +33,20 @@
   function clearFilter() {
     selectedTech = null;
   }
+
+  let activeProject = $state<any>(null);
+
+  // Prevent background scrolling when modal is open
+  $effect(() => {
+    if (activeProject) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  });
 </script>
 
 <section id="proyectos" class="py-16 md:py-24">
@@ -86,10 +100,20 @@
           out:fade={{ duration: 250 }}
           class="h-full"
         >
-          <article class="h-full flex flex-col justify-between p-6 sm:p-8 rounded-2xl card-bg hover:shadow-md hover:border-slate-300/80 dark:hover:border-slate-700/80 group reveal">
+          <!-- svelte-ignore a11y_click_events_have_key_events -->
+          <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+          <article 
+            onclick={() => activeProject = project}
+            class="h-full flex flex-col justify-between p-6 sm:p-8 rounded-2xl card-bg hover:shadow-md hover:border-slate-300/80 dark:hover:border-slate-700/80 group reveal cursor-pointer active:scale-[0.995] transition-all duration-200"
+          >
             
             <!-- Top Window Bar (macOS controls + Links) -->
-            <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-100/50 dark:border-slate-800/40">
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <div 
+              onclick={(e) => e.stopPropagation()}
+              class="flex items-center justify-between mb-4 pb-2 border-b border-slate-100/50 dark:border-slate-800/40"
+            >
               <!-- macOS Window controls -->
               <div class="flex items-center gap-1.5">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56] dark:bg-[#ef4444]"></span>
@@ -144,10 +168,20 @@
                 <p class="text-sm sm:text-base text-slate-600 dark:text-slate-350 leading-relaxed font-sans font-light line-clamp-4">
                   {project.description}
                 </p>
+                <!-- Click indicator details -->
+                <div class="mt-3 text-[10px] font-bold text-indigo-650 dark:text-indigo-400 flex items-center gap-1 transition-all duration-200 group-hover:gap-1.5 select-none">
+                  <span>Detalles del proyecto</span>
+                  <span>→</span>
+                </div>
               </div>
 
             <!-- Tech Badges -->
-            <div class="flex flex-wrap gap-1.5 pt-5 border-t border-slate-100 dark:border-slate-800/60 mt-6">
+            <!-- svelte-ignore a11y_click_events_have_key_events -->
+            <!-- svelte-ignore a11y_no_static_element_interactions -->
+            <div 
+              onclick={(e) => e.stopPropagation()}
+              class="flex flex-wrap gap-1.5 pt-5 border-t border-slate-100 dark:border-slate-800/60 mt-6"
+            >
               {#each project.technologies as tech}
                 {@const isBadgeActive = selectedTech === tech}
                 <button
@@ -180,4 +214,119 @@
       {/each}
     </div>
   </div>
+
+  <!-- Interactive Project Details Modal -->
+  {#if activeProject}
+    <!-- Background Backdrop overlay with blur -->
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
+    <div 
+      transition:fade={{ duration: 180 }}
+      onclick={() => activeProject = null}
+      class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    >
+      <!-- IDE Terminal style modal window -->
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
+      <!-- svelte-ignore a11y_no_static_element_interactions -->
+      <div 
+        transition:scale={{ duration: 220, start: 0.95 }}
+        onclick={(e) => e.stopPropagation()}
+        class="w-full max-w-2xl bg-[#0b0f19] border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] text-left"
+      >
+        <!-- Window header (macOS bar style) -->
+        <div class="bg-slate-900/90 px-6 py-4 flex items-center justify-between border-b border-slate-800/80">
+          <div class="flex items-center gap-2">
+            <!-- macOS dots -->
+            <span class="w-3 h-3 rounded-full bg-[#ff5f56] dark:bg-[#ef4444]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#ffbd2e] dark:bg-[#f59e0b]"></span>
+            <span class="w-3 h-3 rounded-full bg-[#27c93f] dark:bg-[#10b981]"></span>
+            <span class="ml-2.5 text-xs font-mono text-slate-500 font-light select-none">{activeProject.id}.json</span>
+          </div>
+          <!-- Close button -->
+          <button 
+            onclick={() => activeProject = null}
+            aria-label="Cerrar modal"
+            class="text-slate-400 hover:text-white hover:bg-slate-800 p-1 rounded-md transition-colors cursor-pointer active:scale-95"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Window body content -->
+        <div class="p-6 sm:p-8 space-y-6 overflow-y-auto custom-term-scroll flex-grow">
+          <!-- Featured Badge + Title -->
+          <div class="space-y-1">
+            {#if activeProject.featured}
+              <span class="inline-flex items-center gap-1 text-[9px] font-bold tracking-wider uppercase text-indigo-400 bg-indigo-950/40 px-2 py-0.5 rounded-md">
+                ★ Destacado
+              </span>
+            {/if}
+            <h3 class="text-2xl font-extrabold text-white leading-tight">
+              {activeProject.title}
+            </h3>
+          </div>
+
+          <!-- Description Block -->
+          <div class="space-y-2">
+            <div class="text-[9px] font-bold text-slate-500 uppercase tracking-widest select-none">Descripción Completa</div>
+            <p class="text-slate-300 leading-relaxed font-sans text-sm sm:text-base font-light whitespace-pre-line">
+              {activeProject.description}
+            </p>
+          </div>
+
+          <!-- Technologies block -->
+          <div class="space-y-3">
+            <div class="text-[9px] font-bold text-slate-500 uppercase tracking-widest select-none">Tecnologías e Integraciones</div>
+            <div class="flex flex-wrap gap-1.5">
+              {#each activeProject.technologies as tech}
+                <span class="px-2.5 py-0.5 text-xs font-semibold rounded-md bg-slate-900 border border-slate-850 text-slate-350 select-none">
+                  {tech}
+                </span>
+              {/each}
+            </div>
+          </div>
+        </div>
+
+        <!-- Window footer actions -->
+        <div class="bg-slate-900/60 px-6 py-4 flex items-center justify-end gap-3 border-t border-slate-800/80">
+          <button 
+            onclick={() => activeProject = null}
+            class="px-4 py-2 rounded-xl border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-850 text-xs font-bold transition-all cursor-pointer active:scale-95"
+          >
+            Cerrar
+          </button>
+          {#if activeProject.githubUrl}
+            <a
+              href={activeProject.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 rounded-xl border border-slate-850 text-slate-300 hover:text-white hover:bg-slate-800 text-xs font-bold flex items-center gap-2 transition-all cursor-pointer active:scale-95"
+            >
+              <!-- Code brackets -->
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+              Código Fuente
+            </a>
+          {/if}
+          {#if activeProject.liveUrl}
+            <a
+              href={activeProject.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-4 py-2 rounded-xl bg-indigo-650 text-white hover:bg-indigo-600 text-xs font-bold flex items-center gap-2 transition-all cursor-pointer active:scale-95 shadow-md"
+            >
+              Ver Demo
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+            </a>
+          {/if}
+        </div>
+      </div>
+    </div>
+  {/if}
 </section>
