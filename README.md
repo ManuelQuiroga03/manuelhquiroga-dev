@@ -1,47 +1,94 @@
-# Svelte + TS + Vite
+# Portafolio Profesional Interactivo 🕹️
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+Este repositorio contiene el código fuente de mi portafolio profesional e interactivo como desarrollador de software. Diseñado con una experiencia inmersiva que combina una consola retro inspirada en Nintendo Switch y un currículum clásico detallado y elegante.
 
-## Recommended IDE Setup
+**URL en Vivo:** [manuelquiroga.dev](https://manuelquiroga.dev)
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+---
 
-## Need an official Svelte framework?
+## 🚀 Características Clave
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+### 1. Consola Retro 3D Interactiva
+* **Diseño 3D Realista**: Joy-cons en color gris carbón mate con biseles brillantes, sombreado profundo y rieles interiores neón (azul cian y rojo/naranja).
+* **Animación de Ensamblado (Snap)**: Al cargar el sitio, los Joy-cons se deslizan desde los extremos y se acoplan con un efecto sonoro visual contra la pantalla central.
+* **Botón Power CRT**: Apagado físico con efecto de contracción de pantalla CRT analógica.
+* **Tetris 100% Jugable**: Motor de juego desarrollado nativamente en Svelte 5. Controlable mediante teclado en escritorio (Flechas y Espacio) o con el Joy-con virtual.
+* **Gamepad Móvil Táctil**: UI responsiva que se adapta a smartphones acoplando una cruceta D-Pad y botones A/B interactivos debajo de la pantalla digital.
 
-## Technical considerations
+### 2. Portafolio Clásico de Alta Conversión
+* **Sección Widescreen**: Layout optimizado para pantallas ultra-anchas (`max-w-[1380px]`) que equilibra el espacio de lectura.
+* **Educación e Idiomas**: Organización modular en dos filas para permitir un crecimiento ilimitado de certificados sin desbalancear la rejilla.
+* **Carrusel de Logotipos Deslizante**: Un marquee infinito para tecnologías de desarrollo utilizando trazados SVG inline y el CDN de jsDelivr.
+* **Scroll Reveal Recurrente**: Animaciones de entrada suaves que se reinician al salir del visor para lograr un dinamismo constante en la navegación.
+* **Privacidad**: Filtros de enlace inteligentes para proteger repositorios privados de propiedad intelectual corporativa.
+* **Descarga PDF Dinámica**: Configuración centralizada de descarga mediante la propiedad `pdfUrl` en el archivo de datos para admitir integraciones futuras con la nube (Dropbox, Drive) sin requerir redespliegues.
 
-**Why use this over SvelteKit?**
+---
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+## 🛠️ Stack Tecnológico
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+* **Frontend**: Svelte 5 (Runes y mejoras de reactividad)
+* **Estilos**: Tailwind CSS
+* **Lenguaje**: TypeScript
+* **Compilador**: Vite
+* **Validación**: svelte-check
+* **Alojamiento sugerido**: Vercel
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+---
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+## 💻 Desarrollo Local
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+Para correr este proyecto en tu computadora localmente, sigue estos pasos:
 
-**Why include `.vscode/extensions.json`?**
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/ManuelQuiroga03/manuelhquiroga-dev.git
+   cd manuelhquiroga-dev
+   ```
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
 
-**Why enable `allowJs` in the TS template?**
+3. **Ejecutar servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+   Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+4. **Validar tipos y compilar para producción:**
+   ```bash
+   npm run check
+   ```
+   Y para empaquetar los archivos de distribución listos para la web:
+   ```bash
+   npm run build
+   ```
 
-**Why is HMR not preserving my local component state?**
+---
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+## 📂 Estructura de Carpetas
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+```text
+├── src/
+│   ├── assets/         # Recursos estáticos y logotipos auxiliares
+│   ├── components/     # Componentes modulares (Switch, Tetris, Habilidades, Proyectos)
+│   │   ├── ConsoleScreen.svelte
+│   │   ├── ConsoleView.svelte
+│   │   ├── IntroBanner.svelte
+│   │   ├── Projects.svelte
+│   │   └── ...
+│   ├── data/           # Base de datos local (cv.ts)
+│   ├── lib/            # Utilidades generales y stores de reactividad
+│   ├── App.svelte      # Componente raíz y control de flujo
+│   └── main.ts         # Punto de entrada de la aplicación
+├── public/             # PDF del currículum, imágenes y favicon
+└── vite.config.ts      # Configuración de compilación de Vite
 ```
+
+---
+
+## 📄 Licencia
+
+Este proyecto es de código abierto. Siéntete libre de adaptarlo o tomar inspiración de la consola interactiva para tu propia presentación profesional.
