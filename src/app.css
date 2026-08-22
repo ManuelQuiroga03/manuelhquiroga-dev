@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Custom Color Tokens */
+  --color-brand-50: #f8fafc;
+  --color-brand-100: #ffffff;
+  --color-brand-500: #4f46e5;
+  --color-brand-600: #4338ca;
+  --color-brand-900: #0f172a;
+  --color-brand-950: #090d16;
+
+  /* Accent Colors */
+  --color-accent-emerald: #10b981;
+  --color-accent-teal: #14b8a6;
+  --color-accent-violet: #8b5cf6;
+
+  /* Ambient Shadows */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    @apply bg-slate-50 text-slate-700 antialiased selection:bg-indigo-500/20 selection:text-indigo-600;
+  }
+
+  /* When dark mode class is applied to html */
+  html.dark body {
+    @apply bg-slate-950 text-slate-200 selection:bg-indigo-500/30 selection:text-indigo-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight text-slate-900 dark:text-white;
+  }
+}
+
+/* Custom Components & Utilities */
+@layer utilities {
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(241, 245, 249, 0.8);
+  }
+
+  .dark .glass-nav {
+    background: rgba(9, 13, 22, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(30, 41, 59, 0.4);
+  }
+
+  .card-bg {
+    @apply bg-white border border-slate-200/60 dark:bg-slate-900 dark:border-slate-800/80 shadow-sm transition-all duration-300;
+  }
+
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @apply bg-gradient-to-r from-indigo-600 to-indigo-500;
+  }
+
+  .dark .text-gradient {
+    @apply bg-gradient-to-r from-indigo-400 to-purple-400;
+  }
+
+  /* Dotted grid background */
+  .grid-bg-subtle {
+    background-image: radial-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .dark .grid-bg-subtle {
+    background-image: radial-gradient(rgba(51, 65, 85, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors;
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive Background with subtle cian/pink glows and carbon grid lines */
+.interactive-bg {
+  background-color: #080a0f !important;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.08) 0px, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
+}
+
+/* Infinite sliding keyframes and utility for tech stack carousel */
+@keyframes infinite-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-infinite-slide {
+  animation: infinite-slide 30s linear infinite;
+}
