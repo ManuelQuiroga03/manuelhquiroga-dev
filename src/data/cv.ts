@@ -168,7 +168,7 @@ export const cvData: CVData = {
       description: "Plataforma web para organizar notas de aprendizaje y biblioteca interactiva de comandos CLI (.NET, Docker, Git) con copia en 1-clic y buscador global instantáneo Ctrl+K.",
       technologies: ["React", "TypeScript", ".NET", "C#", "PostgreSQL", "Tailwind CSS", "Docker", "Podman"],
       githubUrl: "https://github.com/ManuelQuiroga03/devKeep.git",
-      liveUrl: undefined,
+      liveUrl: "https://dev-keep-hazel.vercel.app/courses/9de76f51-3177-41e6-b702-d3b5e26e42fc",
       featured: false
     }
   ],
