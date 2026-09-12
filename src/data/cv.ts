@@ -61,8 +61,17 @@ export interface Course {
   certificateUrl?: string;
 }
 
+export interface ValueService {
+  id: string;
+  title: string;
+  description: string;
+  icon: 'backend' | 'database' | 'integration';
+  highlights: string[];
+}
+
 export interface CVData {
   profile: Profile;
+  valueServices: ValueService[];
   experience: Job[];
   projects: Project[];
   skills: SkillCategory[];
@@ -86,6 +95,29 @@ export const cvData: CVData = {
     website: "https://manuelhquiroga-dev.vercel.app/",
     pdfUrl: undefined // Configurar liga de Dropbox/Drive aquí en el futuro (ej. "https://dl.dropboxusercontent.com/s/...")
   },
+  valueServices: [
+    {
+      id: "val-1",
+      icon: "backend",
+      title: "Desarrollo Backend & Web APIs",
+      description: "Construcción de arquitecturas escalables y robustas en C# y .NET Core con consumo y emisión de servicios REST y SOAP de alto rendimiento.",
+      highlights: [".NET Core / C#", "APIs REST & SOAP", "Arquitectura Limpia"]
+    },
+    {
+      id: "val-2",
+      icon: "database",
+      title: "Optimización & Tuning SQL Server",
+      description: "Diseño relacional, creación de procedimientos almacenados avanzados, funciones y tuning de consultas de alto volumen.",
+      highlights: ["Stored Procedures", "Query Tuning", "Modelado Relacional"]
+    },
+    {
+      id: "val-3",
+      icon: "integration",
+      title: "Mantenimiento & Integración ERP",
+      description: "Conexión e integración de aplicaciones web con ERPs (SAP Business One) y soporte a incidentes Nivel 2 y 3.",
+      highlights: ["SAP Business One", "Integración de Sistemas", "Soporte Nivel 2/3"]
+    }
+  ],
   experience: [
     {
       id: "exp-1",
@@ -136,6 +168,15 @@ export const cvData: CVData = {
       featured: false
     },
     {
+      id: "proj-5",
+      title: "SmartRAG Enterprise AI",
+      description: "Sistema de IA Privada y RAG autónomo con arquitectura de autocorregibilidad mediante LangGraph. Indexa y consulta documentos confidenciales on-premise ejecutando modelos LLM locales sin nube.",
+      technologies: ["React", "TypeScript", "Python", "FastAPI", "LangGraph", "ChromaDB", "Tauri"],
+      githubUrl: "https://github.com/ManuelQuiroga03/smartRAGAI.git",
+      liveUrl: undefined,
+      featured: true
+    },
+    {
       id: "proj-3",
       title: "XML CFDI 4.0 Mock Generator",
       description: "Suite local en navegador para la generación masiva de XMLs fiscales CFDI 4.0 simulando complementos como Carta Porte, Nómina y REP con Timbre Fiscal Digital para pipelines de QA.",
@@ -152,15 +193,6 @@ export const cvData: CVData = {
       githubUrl: undefined,
       liveUrl: undefined,
       featured: false
-    },
-    {
-      id: "proj-5",
-      title: "SmartRAG Enterprise AI",
-      description: "Sistema de IA Privada y RAG autónomo con arquitectura de autocorregibilidad mediante LangGraph. Indexa y consulta documentos confidenciales on-premise ejecutando modelos LLM locales sin nube.",
-      technologies: ["React", "TypeScript", "Python", "FastAPI", "LangGraph", "ChromaDB", "Tauri"],
-      githubUrl: "https://github.com/ManuelQuiroga03/smartRAGAI.git",
-      liveUrl: undefined,
-      featured: true
     },
     {
       id: "proj-6",
@@ -224,7 +256,7 @@ export const cvData: CVData = {
     {
       id: "lang-2",
       language: "Inglés",
-      level: "Lectura técnica / Nivel A2 (Comprensión fluida de documentación técnica)"
+      level: "Nivel A2"
     }
   ],
   courses: [
@@ -232,21 +264,21 @@ export const cvData: CVData = {
       id: "course-1",
       title: "SQL Server: Programación Avanzada 2026 [OFICIAL]",
       institution: "Udemy (Instructor: Mariano Puglisi)",
-      period: "2026",
+      period: "2023",
       certificateUrl: "https://www.udemy.com/certificate/UC-75bb8c22-d2bb-48ba-a367-ddb0081d0be6/"
     },
     {
       id: "course-2",
       title: "SAP BUSINESS ONE 2026: Cero a Experto",
       institution: "Udemy (Instructor: David Moncada)",
-      period: "2026",
+      period: "2025",
       certificateUrl: "https://www.udemy.com/certificate/UC-ee66834a-4c68-4b53-a78f-36898da75e88/"
     },
     {
       id: "course-3",
       title: "Curso de .NET MAUI con Visual Studio 2022 creando PROYECTOS",
       institution: "Udemy (Instructor: Héctor Uriel Pérez)",
-      period: "2025",
+      period: "2022",
       certificateUrl: "https://www.udemy.com/certificate/UC-331582bc-db0e-4cee-8665-f0c89e73c936/"
     },
     {
@@ -260,14 +292,14 @@ export const cvData: CVData = {
       id: "course-5",
       title: "Patrones de diseño y principios SOLID en C# .NET",
       institution: "Udemy (Instructor: Rodrigo Morales)",
-      period: "2024",
+      period: "2023",
       certificateUrl: "https://www.udemy.com/certificate/UC-8b8d694f-77dc-49af-bf05-c4a8ffc4d9f2/"
     },
     {
       id: "course-6",
       title: "Hands-On Machine Learning for .NET Developers",
       institution: "Udemy (Packt Publishing)",
-      period: "2025",
+      period: "2023",
       certificateUrl: "https://www.udemy.com/certificate/UC-54fb33f6-a07d-4702-8d87-b784136337ed/"
     }
   ]

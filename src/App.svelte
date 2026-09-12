@@ -1,6 +1,7 @@
 <script lang="ts">
   import Header from './components/Header.svelte';
   import Hero from './components/Hero.svelte';
+  import ValueServices from './components/ValueServices.svelte';
   import Skills from './components/Skills.svelte';
   import Experience from './components/Experience.svelte';
   import Projects from './components/Projects.svelte';
@@ -207,6 +208,42 @@
       <!-- Operator Bio & Contact Cards -->
       <Hero />
 
+      <!-- Value Proposition / What I Solve Services Cards -->
+      <ValueServices />
+
+      <!-- Infinite Technologies Carousel (Sleek slider) -->
+      <section class="py-10 border-t border-slate-200/50 dark:border-slate-800/40 bg-slate-100/10 dark:bg-[#080a0f]/20 overflow-hidden select-none">
+        <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+          <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 text-center">
+            Tecnologías y Herramientas del Stack
+          </h3>
+        </div>
+        
+        <div class="relative w-full flex overflow-x-hidden">
+          <!-- Ambient lighting fade masks -->
+          <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+          <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+
+          <!-- Rolling loop -->
+          <div class="flex gap-4 py-2 shrink-0 animate-infinite-slide whitespace-nowrap">
+            {#each [...Array(2)] as _}
+              <div class="flex gap-4">
+                {#each techCarousel as tech}
+                  <span class="px-5 py-2.5 rounded-xl bg-white dark:bg-[#0c0f16] border border-slate-200/60 dark:border-[#1c2130] text-xs font-bold text-slate-700 dark:text-slate-350 shadow-sm flex items-center gap-2.5 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+                    {#if tech.type === 'svg'}
+                      {@html tech.svg}
+                    {:else}
+                      <img src={tech.src} class="w-4 h-4 object-contain {tech.name === 'GitHub' ? 'dark:invert' : ''}" alt={tech.name} loading="lazy" />
+                    {/if}
+                    <span>{tech.name}</span>
+                  </span>
+                {/each}
+              </div>
+            {/each}
+          </div>
+        </div>
+      </section>
+
       <!-- Skills categorized grids -->
       <Skills />
 
@@ -318,39 +355,6 @@
             </div>
           </div>
 
-        </div>
-      </section>
-
-      <!-- Infinite Technologies Carousel (Sleek slider) -->
-      <section class="py-12 border-t border-slate-200/50 dark:border-slate-800/40 bg-slate-100/10 dark:bg-[#080a0f]/20 overflow-hidden select-none">
-        <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-          <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 text-center">
-            Tecnologías y Herramientas del Stack
-          </h3>
-        </div>
-        
-        <div class="relative w-full flex overflow-x-hidden">
-          <!-- Ambient lighting fade masks -->
-          <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
-          <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
-
-          <!-- Rolling loop -->
-          <div class="flex gap-4 py-2 shrink-0 animate-infinite-slide whitespace-nowrap">
-            {#each [...Array(2)] as _}
-              <div class="flex gap-4">
-                {#each techCarousel as tech}
-                  <span class="px-5 py-2.5 rounded-xl bg-white dark:bg-[#0c0f16] border border-slate-200/60 dark:border-[#1c2130] text-xs font-bold text-slate-700 dark:text-slate-350 shadow-sm flex items-center gap-2.5 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
-                    {#if tech.type === 'svg'}
-                      {@html tech.svg}
-                    {:else}
-                      <img src={tech.src} class="w-4 h-4 object-contain {tech.name === 'GitHub' ? 'dark:invert' : ''}" alt={tech.name} loading="lazy" />
-                    {/if}
-                    <span>{tech.name}</span>
-                  </span>
-                {/each}
-              </div>
-            {/each}
-          </div>
         </div>
       </section>
 
