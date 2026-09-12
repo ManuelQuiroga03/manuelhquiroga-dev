@@ -74,30 +74,51 @@
     }, 400);
   }
 
-  const techCarousel = [
+  interface TechItem {
+    name: string;
+    type: 'url' | 'svg';
+    src?: string;
+    svg?: string;
+  }
+
+  // Row 1: Backend, Databases & Enterprise Architecture
+  const techRow1: TechItem[] = [
     { name: 'C#', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/csharp/csharp-original.svg' },
-    { name: '.NET', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/dotnetcore/dotnetcore-original.svg' },
+    { name: '.NET Core', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/dotnetcore/dotnetcore-original.svg' },
     { name: 'SQL Server', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/microsoftsqlserver/microsoftsqlserver-original.svg' },
     { name: 'PostgreSQL', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/postgresql/postgresql-original.svg' },
     { name: 'Supabase', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/supabase/supabase-original.svg' },
     { name: 'SAP Business One', type: 'svg', svg: '<svg class="w-6 h-3 text-[#006097]" viewBox="0 0 24 10" fill="currentColor"><path d="M4 1.5c-1.2 0-2 .6-2 1.4s.8 1.2 2 1.4c1.8.3 3 .8 3 2.2 0 1.8-1.5 2.5-3.5 2.5-1.8 0-3-.5-3.5-1.2v-1.5c.6.8 1.8 1.2 3.1 1.2 1.2 0 2-.5 2-1.3s-.8-1.1-2-1.3C1.3 4 .3 3.5.3 2.2.3.6 1.8 0 3.6 0c1.6 0 2.7.4 3.3.9V2.4c-.6-.6-1.6-.9-2.9-.9zm7.5.5H8.7v7.5H7.2V2H4.4V.6h7.1v1.4zm5.7 3.6H14v3.9h-1.5V.6h3.4c2.2 0 3.2 1.2 3.2 2.8 0 1.8-1 2.7-3.1 2.7zm-1.8-1.4h1.7c1.1 0 1.7-.5 1.7-1.4 0-.8-.6-1.3-1.7-1.3H15.4v2.7z"/></svg>' },
-    { name: 'Power Apps', type: 'svg', svg: '<svg class="w-4 h-4 text-[#742774] fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14.6 2.3l-9.3 5.4v8.6l9.3 5.4 6.7-3.9V6.2l-6.7-3.9zM7.3 8.7L12 6l4.7 2.7v5.4l-4.7 2.7-4.7-2.7V8.7z"/></svg>' },
-    { name: 'Visual Studio', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/visualstudio/visualstudio-original.svg' },
-    { name: 'VS Code', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/vscode/vscode-original.svg' },
-    { name: 'Antigravity IDE', type: 'svg', svg: '<svg class="w-4 h-4 text-[#8B5CF6] fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.55 0-1-.45-1-1V4.41L7.7 7.71a1 1 0 0 1-1.4-1.42l5-5a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1-1.4 1.42L13 4.41V17c0 .55-.45 1-1 1zm0 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>' },
-    { name: 'Vercel', type: 'svg', svg: '<svg class="w-4 h-4 text-[#000000] dark:text-white fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>' },
-    { name: 'Svelte', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/svelte/svelte-original.svg' },
+    { name: 'Python', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/python/python-original.svg' },
+    { name: 'FastAPI', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/fastapi/fastapi-original.svg' },
+    { name: 'Postman', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/postman/postman-original.svg' }
+  ];
+
+  // Row 2: Frontend, Web Stack & UI Tools
+  const techRow2: TechItem[] = [
     { name: 'Angular', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/angularjs/angularjs-original.svg' },
     { name: 'TypeScript', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/typescript/typescript-original.svg' },
     { name: 'JavaScript', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/javascript/javascript-original.svg' },
+    { name: 'React', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/react/react-original.svg' },
+    { name: 'Svelte', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/svelte/svelte-original.svg' },
     { name: 'Node.js', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/nodejs/nodejs-original.svg' },
     { name: 'Tailwind CSS', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/tailwindcss/tailwindcss-original.svg' },
-    { name: 'Git', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/git/git-original.svg' },
-    { name: 'GitHub', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/github/github-original.svg' },
+    { name: 'HTML5', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/html5/html5-original.svg' },
+    { name: 'CSS3', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/css3/css3-original.svg' },
+    { name: 'Vite', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/vite/vite-original.svg' },
+    { name: 'Figma', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/figma/figma-original.svg' }
+  ];
+
+  // Row 3: DevOps, Cloud, AI Agents & IDEs
+  const techRow3: TechItem[] = [
     { name: 'Docker', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/docker/docker-original.svg' },
     { name: 'Podman', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/podman/podman-original.svg' },
-    { name: 'Postman', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/postman/postman-original.svg' },
-    { name: 'Figma', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/figma/figma-original.svg' },
+    { name: 'Git', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/git/git-original.svg' },
+    { name: 'GitHub', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/github/github-original.svg' },
+    { name: 'Vercel', type: 'svg', svg: '<svg class="w-4 h-4 text-[#000000] dark:text-white fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 22.525H0L12 1.475L24 22.525Z"/></svg>' },
+    { name: 'Visual Studio', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/visualstudio/visualstudio-original.svg' },
+    { name: 'VS Code', type: 'url', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/vscode/vscode-original.svg' },
+    { name: 'Antigravity IDE', type: 'svg', svg: '<svg class="w-4 h-4 text-[#8B5CF6] fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.55 0-1-.45-1-1V4.41L7.7 7.71a1 1 0 0 1-1.4-1.42l5-5a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1-1.4 1.42L13 4.41V17c0 .55-.45 1-1 1zm0 4a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/></svg>' },
     { name: 'Google Gemini', type: 'svg', svg: '<svg class="w-4 h-4 text-[#4285F4] fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c0 6.627-5.373 12-12 12 6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z"/></svg>' },
     { name: 'ChatGPT', type: 'svg', svg: '<svg class="w-4 h-4 text-[#10a37f] fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 10.5c-.3-1.6-1.5-2.8-3.1-3.1-1.6-.3-3.2.4-3.9 1.8-.7-.9-1.9-1.4-3.1-1.2-1.2.2-2.2 1.1-2.5 2.3-.9-.7-2.2-.9-3.2-.4-1 .5-1.7 1.6-1.7 2.8 0 1.2.7 2.3 1.7 2.8 1.1.5 2.3.3 3.2-.4.3 1.2 1.3 2.1 2.5 2.3 1.2.2 2.4-.3 3.1-1.2.7 1.4 2.3 2.1 3.9 1.8 1.6-.3 2.8-1.5 3.1-3.1.3-1.6-.4-3.2-1.8-3.9 1.4-.7 2.1-2.3 1.8-3.9zM12 13.5c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/></svg>' }
   ];
@@ -211,25 +232,25 @@
       <!-- Value Proposition / What I Solve Services Cards -->
       <ValueServices />
 
-      <!-- Infinite Technologies Carousel (Sleek slider) -->
-      <section class="py-10 border-t border-slate-200/50 dark:border-slate-800/40 bg-slate-100/10 dark:bg-[#080a0f]/20 overflow-hidden select-none">
-        <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+      <!-- Infinite Technologies Carousel (3 Bidirectional Rows with Hover Pause) -->
+      <section class="py-10 border-t border-slate-200/50 dark:border-slate-800/40 bg-slate-100/10 dark:bg-[#080a0f]/20 overflow-hidden select-none space-y-4">
+        <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8 mb-4">
           <h3 class="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 text-center">
-            Tecnologías y Herramientas del Stack
+            Ecosistema Tecnológico & Herramientas del Stack
           </h3>
         </div>
         
-        <div class="relative w-full flex overflow-x-hidden">
+        <div class="relative w-full flex flex-col gap-3.5 overflow-x-hidden">
           <!-- Ambient lighting fade masks -->
-          <div class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
-          <div class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+          <div class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
+          <div class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none"></div>
 
-          <!-- Rolling loop -->
-          <div class="flex gap-4 py-2 shrink-0 animate-infinite-slide whitespace-nowrap">
+          <!-- Row 1: Right to Left (Backend, DB & Architecture) -->
+          <div class="flex gap-4 py-1 shrink-0 animate-infinite-slide hover:[animation-play-state:paused] whitespace-nowrap cursor-pointer">
             {#each [...Array(2)] as _}
               <div class="flex gap-4">
-                {#each techCarousel as tech}
-                  <span class="px-5 py-2.5 rounded-xl bg-white dark:bg-[#0c0f16] border border-slate-200/60 dark:border-[#1c2130] text-xs font-bold text-slate-700 dark:text-slate-350 shadow-sm flex items-center gap-2.5 hover:border-slate-300 dark:hover:border-slate-700 transition-colors">
+                {#each techRow1 as tech}
+                  <span class="px-5 py-2.5 rounded-xl bg-white dark:bg-[#0c0f16] border border-slate-200/60 dark:border-[#1c2130] text-xs font-bold text-slate-700 dark:text-slate-350 shadow-sm flex items-center gap-2.5 hover:border-indigo-500/60 dark:hover:border-indigo-500/60 transition-colors">
                     {#if tech.type === 'svg'}
                       {@html tech.svg}
                     {:else}
@@ -241,6 +262,43 @@
               </div>
             {/each}
           </div>
+
+          <!-- Row 2: Left to Right (Frontend & UI Stack) -->
+          <div class="flex gap-4 py-1 shrink-0 animate-infinite-slide-reverse hover:[animation-play-state:paused] whitespace-nowrap cursor-pointer">
+            {#each [...Array(2)] as _}
+              <div class="flex gap-4">
+                {#each techRow2 as tech}
+                  <span class="px-5 py-2.5 rounded-xl bg-white dark:bg-[#0c0f16] border border-slate-200/60 dark:border-[#1c2130] text-xs font-bold text-slate-700 dark:text-slate-350 shadow-sm flex items-center gap-2.5 hover:border-cyan-500/60 dark:hover:border-cyan-500/60 transition-colors">
+                    {#if tech.type === 'svg'}
+                      {@html tech.svg}
+                    {:else}
+                      <img src={tech.src} class="w-4 h-4 object-contain {tech.name === 'GitHub' ? 'dark:invert' : ''}" alt={tech.name} loading="lazy" />
+                    {/if}
+                    <span>{tech.name}</span>
+                  </span>
+                {/each}
+              </div>
+            {/each}
+          </div>
+
+          <!-- Row 3: Right to Left (DevOps, Cloud, AI & IDEs) -->
+          <div class="flex gap-4 py-1 shrink-0 animate-infinite-slide hover:[animation-play-state:paused] whitespace-nowrap cursor-pointer">
+            {#each [...Array(2)] as _}
+              <div class="flex gap-4">
+                {#each techRow3 as tech}
+                  <span class="px-5 py-2.5 rounded-xl bg-white dark:bg-[#0c0f16] border border-slate-200/60 dark:border-[#1c2130] text-xs font-bold text-slate-700 dark:text-slate-350 shadow-sm flex items-center gap-2.5 hover:border-emerald-500/60 dark:hover:border-emerald-500/60 transition-colors">
+                    {#if tech.type === 'svg'}
+                      {@html tech.svg}
+                    {:else}
+                      <img src={tech.src} class="w-4 h-4 object-contain {tech.name === 'GitHub' ? 'dark:invert' : ''}" alt={tech.name} loading="lazy" />
+                    {/if}
+                    <span>{tech.name}</span>
+                  </span>
+                {/each}
+              </div>
+            {/each}
+          </div>
+
         </div>
       </section>
 

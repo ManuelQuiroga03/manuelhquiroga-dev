@@ -136,6 +136,20 @@
     transform: translateX(-50%);
   }
 }
+
+@keyframes infinite-slide-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .animate-infinite-slide {
-  animation: infinite-slide 30s linear infinite;
+  animation: infinite-slide 32s linear infinite;
+}
+
+.animate-infinite-slide-reverse {
+  animation: infinite-slide-reverse 32s linear infinite;
 }
