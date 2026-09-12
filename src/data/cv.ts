@@ -153,7 +153,7 @@ export const cvData: CVData = {
       id: "proj-1",
       title: "Facturación CFDI 4.0 & Timbrado Core",
       description: "Desarrollo y optimización de componentes backend en C# integrados con APIs de PACs para la emisión, timbrado y cancelación automatizada de facturas electrónicas conformes a la normativa CFDI 4.0 del SAT.",
-      technologies: ["C#", "CFDI 4.0", "SQL Server", "APIs REST", "XSLT"],
+      technologies: ["C#", ".NET Core", "SQL Server", "SAP Business One", "APIs REST", "XSLT", "Postman", "Visual Studio"],
       githubUrl: undefined,
       liveUrl: undefined,
       featured: true
@@ -162,7 +162,7 @@ export const cvData: CVData = {
       id: "proj-2",
       title: "FacturaPDF - Procesador Batch & Visor CFDI 4.0",
       description: "Aplicación nativa para la conversión masiva paralela de XML CFDI a PDF personalizable. Monitorea directorios en segundo plano, aplica plantillas XSLT dinámicas e incluye un visor y editor integrado.",
-      technologies: ["C#", ".NET", "MAUI", "XSLT", "XML", "CFDI 4.0"],
+      technologies: ["C#", ".NET Core", "MAUI", "XSLT", "XML", "CFDI 4.0", "Visual Studio"],
       githubUrl: "https://github.com/ManuelQuiroga03/facturapdf",
       liveUrl: undefined,
       featured: false
@@ -171,7 +171,7 @@ export const cvData: CVData = {
       id: "proj-5",
       title: "SmartRAG Enterprise AI",
       description: "Sistema de IA Privada y RAG autónomo con arquitectura de autocorregibilidad mediante LangGraph. Indexa y consulta documentos confidenciales on-premise ejecutando modelos LLM locales sin nube.",
-      technologies: ["React", "TypeScript", "Python", "FastAPI", "LangGraph", "ChromaDB", "Tauri"],
+      technologies: ["React.js", "TypeScript", "Python", "FastAPI", "LangGraph", "ChromaDB", "Tauri", "VS Code", "Google Gemini", "ChatGPT", "Antigravity IDE"],
       githubUrl: "https://github.com/ManuelQuiroga03/smartRAGAI.git",
       liveUrl: undefined,
       featured: true
@@ -180,7 +180,7 @@ export const cvData: CVData = {
       id: "proj-3",
       title: "XML CFDI 4.0 Mock Generator",
       description: "Suite local en navegador para la generación masiva de XMLs fiscales CFDI 4.0 simulando complementos como Carta Porte, Nómina y REP con Timbre Fiscal Digital para pipelines de QA.",
-      technologies: ["TypeScript", "Vite", "HTML5", "CSS3", "CFDI 4.0"],
+      technologies: ["TypeScript", "Vite", "HTML5", "CSS3", "CFDI 4.0", "VS Code", "Vercel"],
       githubUrl: "https://github.com/ManuelQuiroga03/xmlmockgenerator",
       liveUrl: "https://xmlmockgenerator.vercel.app/",
       featured: true
@@ -189,7 +189,7 @@ export const cvData: CVData = {
       id: "proj-4",
       title: "Xamai MPX 2.0",
       description: "Plataforma empresarial para la visualización de KPIs de negocio y reportes financieros. Participación en el desarrollo del frontend responsivo y modular con JavaScript y Angular.",
-      technologies: ["JavaScript", "Angular", "HTML5", "CSS3", "Git"],
+      technologies: ["JavaScript", "Angular", "HTML5", "CSS3", "Git", "Figma", "SAP Business One"],
       githubUrl: undefined,
       liveUrl: undefined,
       featured: false
@@ -198,7 +198,7 @@ export const cvData: CVData = {
       id: "proj-6",
       title: "DevKeep",
       description: "Plataforma web para organizar notas de aprendizaje y biblioteca interactiva de comandos CLI (.NET, Docker, Git) con copia en 1-clic y buscador global instantáneo Ctrl+K.",
-      technologies: ["React", "TypeScript", ".NET", "C#", "PostgreSQL", "Tailwind CSS", "Docker", "Podman"],
+      technologies: ["React.js", "Next.js", "Svelte", "TypeScript", ".NET Core", "C#", "PostgreSQL", "Supabase", "Tailwind CSS", "Docker", "Podman", "GitHub", "Vercel", "Postman"],
       githubUrl: "https://github.com/ManuelQuiroga03/devKeep.git",
       liveUrl: "https://dev-keep-hazel.vercel.app/courses/9de76f51-3177-41e6-b702-d3b5e26e42fc",
       featured: false

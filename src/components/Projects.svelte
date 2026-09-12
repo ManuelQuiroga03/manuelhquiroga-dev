@@ -15,10 +15,22 @@
     new Set(projects.flatMap(p => p.technologies))
   ).sort();
 
+  // Helper for flexible technology matching between carousel pills and project tags
+  function isTechMatching(projectTechs: string[], targetTech: string): boolean {
+    const target = targetTech.toLowerCase().trim();
+    return projectTechs.some(tech => {
+      const current = tech.toLowerCase().trim();
+      if (current === target) return true;
+      if ((target.includes('react') && current.includes('react')) ||
+          (target.includes('.net') && current.includes('.net'))) return true;
+      return false;
+    });
+  }
+
   // Reactive derived list of projects based on the filter
   let filteredProjects = $derived(
     selectedTech
-      ? projects.filter(p => p.technologies.includes(selectedTech!))
+      ? projects.filter(p => isTechMatching(p.technologies, selectedTech!))
       : projects
   );
 
@@ -53,7 +65,7 @@
   <div class="max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
-    <div class="text-center max-w-xl mx-auto mb-12">
+    <div class="text-center max-w-xl mx-auto mb-12 reveal">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
         Proyectos de Software
       </h2>
@@ -64,7 +76,7 @@
     </div>
 
     <!-- Tech Filter Badges -->
-    <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-10 reveal">
       <button
         onclick={clearFilter}
         class="px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200 cursor-pointer active:scale-95
@@ -77,7 +89,7 @@
       </button>
 
       {#each allTechs as tech}
-        {@const isActive = selectedTech === tech}
+        {@const isActive = selectedTech ? isTechMatching([tech], selectedTech) : false}
         <button
           onclick={() => selectTech(tech)}
           class="px-4 py-1.5 text-xs font-semibold rounded-full border transition-all duration-200 cursor-pointer active:scale-95
@@ -104,7 +116,7 @@
           <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
           <article 
             onclick={() => activeProject = project}
-            class="h-full flex flex-col justify-between p-6 sm:p-8 rounded-2xl card-bg hover:shadow-md hover:border-slate-300/80 dark:hover:border-slate-700/80 group reveal cursor-pointer active:scale-[0.995] transition-all duration-200"
+            class="h-full flex flex-col justify-between p-6 sm:p-8 rounded-2xl card-bg hover:shadow-md hover:border-slate-300/80 dark:hover:border-slate-700/80 group cursor-pointer active:scale-[0.995] transition-all duration-200"
           >
             
             <!-- Top Window Bar (macOS controls + Links) -->
@@ -183,7 +195,7 @@
               class="flex flex-wrap gap-1.5 pt-5 border-t border-slate-100 dark:border-slate-800/60 mt-6"
             >
               {#each project.technologies as tech}
-                {@const isBadgeActive = selectedTech === tech}
+                {@const isBadgeActive = selectedTech ? isTechMatching([tech], selectedTech) : false}
                 <button
                   onclick={() => selectTech(tech)}
                   class="px-2.5 py-0.5 text-xs font-semibold rounded-md transition-all duration-200 cursor-pointer active:scale-95
