@@ -195,6 +195,24 @@ export const cvData: CVData = {
       featured: false
     },
     {
+      id: "proj-8",
+      title: "MetrikGym - Progressive Overload PWA",
+      description: "Aplicación Web Progresiva (PWA) de alto rendimiento para atletas y registro de sobrecarga progresiva en gimnasio, diseñada como alternativa competitiva a apps nativas de tiendas como Hevy. Cuenta con arquitectura offline-first en React 18 + Vite (Service Worker, IndexedDB, Web Audio y Web Notifications), backend en ASP.NET Core (.NET 10 Web API con Clean Architecture, JWT y BCrypt), base de datos relacional PostgreSQL alojada en Supabase y contenedorización con Docker.",
+      technologies: ["React.js", "TypeScript", ".NET Core", "C#", "PostgreSQL", "Supabase", "Tailwind CSS", "Docker", "APIs REST", "Vite", "Vercel", "PWA"],
+      githubUrl: "https://github.com/ManuelQuiroga03/metrikGym.git",
+      liveUrl: "https://metrik-gym.vercel.app/",
+      featured: true
+    },
+    {
+      id: "proj-7",
+      title: "Coccinella Dental Studio",
+      description: "Landing page médica moderna y de alta conversión para clínica odontológica en Zacatlán, Puebla. Desarrollada con enfoque mobile-first responsivo, optimización SEO local avanzada con metadatos estructurados Schema.org (JSON-LD Dentist), Open Graph para redes sociales, catálogo interactivo de tratamientos y canal directo de agendamiento vía WhatsApp.",
+      technologies: ["React.js", "TypeScript", "Tailwind CSS", "Vite", "HTML5", "CSS3", "Vercel", "Figma"],
+      githubUrl: "https://github.com/ManuelQuiroga03/dentalLab.git",
+      liveUrl: "https://dental-lab-five.vercel.app/",
+      featured: true
+    },
+    {
       id: "proj-6",
       title: "DevKeep",
       description: "Plataforma web para organizar notas de aprendizaje y biblioteca interactiva de comandos CLI (.NET, Docker, Git) con copia en 1-clic y buscador global instantáneo Ctrl+K.",
