@@ -81,8 +81,8 @@
       window.open(pdfUrl, '_blank');
     } else {
       const link = document.createElement('a');
-      link.href = '/CV_Manuel_Hernandez.pdf';
-      link.download = 'CV_Manuel_Hernandez.pdf';
+      link.href = '/ManuelHernandez_desarrollador_fullstack_net.pdf';
+      link.download = 'ManuelHernandez_desarrollador_fullstack_net.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

@@ -257,7 +257,7 @@
   $effect(() => {
     if (isEntered && currentOption === 'pdf') {
       isEntered = false; // return to menu instantly
-      window.open(cvData.profile.pdfUrl || '/CV_Manuel_Hernandez.pdf', '_blank');
+      window.open(cvData.profile.pdfUrl || '/ManuelHernandez_desarrollador_fullstack_net.pdf', '_blank');
     }
     if (isEntered && currentOption === 'portfolio') {
       isEntered = false; // return to menu

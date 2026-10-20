@@ -117,9 +117,9 @@
           </a>
 
           <a
-            href={profile.pdfUrl || "/CV_Manuel_Hernandez.pdf"}
+            href={profile.pdfUrl || "/ManuelHernandez_desarrollador_fullstack_net.pdf"}
             target={profile.pdfUrl ? "_blank" : undefined}
-            download={profile.pdfUrl ? undefined : "CV_Manuel_Hernandez.pdf"}
+            download={profile.pdfUrl ? undefined : "ManuelHernandez_desarrollador_fullstack_net.pdf"}
             class="w-full sm:w-auto px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-slate-800 bg-white border border-slate-200 hover:bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white shadow-sm hover:shadow transition-all duration-200 hover:-translate-y-0.5 text-center cursor-pointer active:scale-95 flex items-center justify-center gap-2"
           >
             <svg
