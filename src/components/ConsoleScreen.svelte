@@ -3,7 +3,7 @@
   import { cvData } from '../data/cv';
 
   let { 
-    selectedIndex = 0, 
+    selectedIndex = $bindable(0), 
     isEntered = $bindable(false), 
     currentOption = 'portfolio',
     systemBooted = $bindable(false),
@@ -17,6 +17,23 @@
     gameControl: string | null;
     onViewClassic: () => void;
   }>();
+
+  function handleOptionClick(index: number, optId: string) {
+    selectedIndex = index;
+    if (optId === 'portfolio') {
+      onViewClassic();
+    } else if (optId === 'pdf') {
+      const pdfUrl = cvData.profile.pdfUrl || '/ManuelHernandez_desarrollador_fullstack_net.pdf';
+      window.open(pdfUrl, '_blank');
+    } else if (optId === 'tetris') {
+      isEntered = true;
+      if (!tetrisGameStarted && !tetrisGameOver) {
+        startTetris();
+      }
+    } else if (optId === 'hobbies') {
+      isEntered = true;
+    }
+  }
 
   const { profile, education, languages } = cvData;
 
@@ -363,7 +380,8 @@
                 {@const isSelected = selectedIndex === index}
                 <li>
                   <button
-                    class="w-full text-left p-2.5 rounded-xl border transition-all duration-200 flex items-center justify-between cursor-pointer
+                    onclick={() => handleOptionClick(index, opt.id)}
+                    class="w-full text-left p-2.5 rounded-xl border transition-all duration-200 flex items-center justify-between cursor-pointer active:scale-[0.98]
                       {isSelected 
                         ? 'bg-indigo-600/10 border-indigo-500/80 shadow-md text-white ring-1 ring-indigo-500/20' 
                         : 'bg-slate-800/30 border-slate-800/50 hover:bg-slate-800/50 text-slate-400 hover:text-slate-200'
@@ -389,8 +407,16 @@
           <!-- HOBBIES AND PERSONAL LIFE SCREEN -->
           {#if currentOption === 'hobbies'}
             <div class="space-y-2.5 my-auto">
-              <div class="text-[10px] font-bold text-indigo-400 tracking-wider uppercase border-l-2 border-indigo-500 pl-2 mb-1">
-                Intereses Personales
+              <div class="flex items-center justify-between border-b border-slate-800 pb-1 mb-1">
+                <div class="text-[10px] font-bold text-indigo-400 tracking-wider uppercase border-l-2 border-indigo-500 pl-2">
+                  Intereses Personales
+                </div>
+                <button 
+                  onclick={() => isEntered = false} 
+                  class="text-[8px] font-bold text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 cursor-pointer active:scale-95 transition-all"
+                >
+                  ← Volver
+                </button>
               </div>
               <div class="grid grid-cols-2 gap-2 text-[9px]">
                 <div class="bg-slate-850/40 p-2 border border-slate-800 rounded-lg space-y-1">
@@ -443,6 +469,13 @@
                       <div class="text-xs font-bold text-white">{tetrisScore} Puntos</div>
                       <div class="text-[8px] text-indigo-400">{tetrisLines} Líneas</div>
                     </div>
+
+                    <button 
+                      onclick={() => isEntered = false}
+                      class="text-[8px] text-slate-400 hover:text-white px-2 py-1 rounded bg-slate-800/60 hover:bg-slate-700/80 cursor-pointer active:scale-95 transition-all text-center w-full"
+                    >
+                      ← Volver al menú
+                    </button>
 
                     {#if !tetrisGameStarted && !tetrisGameOver}
                       <button 

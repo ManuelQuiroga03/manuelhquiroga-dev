@@ -75,7 +75,7 @@
             <span
               class="inline-flex px-3 py-1 rounded-full text-xs font-semibold tracking-wide text-indigo-700 bg-indigo-50 dark:text-indigo-350 dark:bg-indigo-950/40"
             >
-              Desarrollo Backend & Integración
+              Desarrollador Full Stack .NET
             </span>
             <span
               class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-medium text-slate-500 bg-slate-100 dark:text-slate-400 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800"

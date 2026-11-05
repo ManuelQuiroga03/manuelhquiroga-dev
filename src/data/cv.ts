@@ -83,11 +83,11 @@ export interface CVData {
 export const cvData: CVData = {
   profile: {
     name: "Manuel Hernández Quiroga",
-    title: "Desarrollador .NET / Full Stack (.NET Core, Angular & SQL Server)",
+    title: "Desarrollador Full Stack .NET (.NET Core 6/8 / C# / Angular / React / SQL Server)",
     avatarUrl: "/avatar.jpg",
-    bio: "Especialista en desarrollo backend con C#, gestión de bases de datos SQL y facturación electrónica (CFDI 4.0 / SAP Business One).",
-    summary: "Ingeniero en Informática Titulado con más de 4 años de experiencia profesional en el desarrollo, integración y mantenimiento de aplicaciones web. Especializado en el desarrollo de servicios y APIs backend utilizando C# y .NET Core, construcción de componentes e interfaces frontend con Angular, JavaScript, HTML5 y CSS3, e implementación de lógica de negocio integrando la capa cliente, servidor y bases de datos relacionales en Microsoft SQL Server (consultas, procedimientos almacenados y objetos de BD). Experiencia en atención a incidencias en producción y mantenimiento evolutivo/correctivo de software bajo metodologías ágiles.",
-    location: "Puebla, México",
+    bio: "Especialista en desarrollo Full Stack .NET con C#, Web APIs RESTful, Entity Framework Core, Angular, React y bases de datos SQL Server.",
+    summary: "Ingeniero en Informática Titulado con más de 4 años de experiencia profesional en el diseño, desarrollo e implementación de soluciones web empresariales escalables y de alto impacto. Especializado en el ciclo de vida completo de software (SDLC) con C#, .NET Core (.NET 6, 7 y 8), ASP.NET Core, Web API RESTful y Entity Framework Core; desarrollo frontend moderno y responsivo con Angular (versiones 10 a 16), React, TypeScript, JavaScript (ES6+), HTML5 y CSS3; y administración avanzada de bases de datos relacionales en Microsoft SQL Server mediante modelado, procedimientos almacenados y optimización de rendimiento. Sólido dominio de patrones de diseño orientados a objetos (SOLID, Inyección de Dependencias), pruebas unitarias y trabajo colaborativo bajo marco ágil Scrum.",
+    location: "Zacatlán, Puebla, México",
     phone: "55 7353 9962",
     email: "quirogamanuel21@gmail.com",
     github: "https://github.com/ManuelQuiroga03",
@@ -99,53 +99,57 @@ export const cvData: CVData = {
     {
       id: "val-1",
       icon: "backend",
-      title: "Desarrollo Backend & Web APIs",
-      description: "Construcción de arquitecturas escalables y robustas en C# y .NET Core con consumo y emisión de servicios REST y SOAP de alto rendimiento.",
-      highlights: [".NET Core / C#", "APIs REST & SOAP", "Arquitectura Limpia"]
+      title: "Desarrollo Backend & Web APIs (.NET)",
+      description: "Construcción de arquitecturas escalables y robustas en C#, .NET Core (.NET 6/8) y ASP.NET Core con Web APIs RESTful y Entity Framework Core para plataformas de alta concurrencia.",
+      highlights: [".NET Core 6/8 / C#", "APIs RESTful", "Clean Code & SOLID"]
     },
     {
       id: "val-2",
       icon: "database",
       title: "Optimización & Tuning SQL Server",
-      description: "Diseño relacional, creación de procedimientos almacenados avanzados, funciones y tuning de consultas de alto volumen.",
-      highlights: ["Stored Procedures", "Query Tuning", "Modelado Relacional"]
+      description: "Modelado relacional, desarrollo y refactorización de Stored Procedures complejos, análisis de planes de ejecución y query tuning para rendimiento crítico.",
+      highlights: ["Stored Procedures", "Query Tuning & Índices", "Modelado Relacional"]
     },
     {
       id: "val-3",
       icon: "integration",
-      title: "Mantenimiento & Integración ERP",
-      description: "Conexión e integración de aplicaciones web con ERPs (SAP Business One) y soporte a incidentes Nivel 2 y 3.",
-      highlights: ["SAP Business One", "Integración de Sistemas", "Soporte Nivel 2/3"]
+      title: "Frontend Moderno & Soporte Técnico",
+      description: "Interfaces de usuario modulares y responsivas con Angular (10 a 16), React y TypeScript, junto a integración de servicios y soporte Nivel 2/3 en facturación CFDI 4.0.",
+      highlights: ["Angular 16 & React", "TypeScript", "CFDI 4.0 / Soporte Nivel 2/3"]
     }
   ],
   experience: [
     {
       id: "exp-1",
       company: "Ximplify",
-      role: "Desarrollador .NET / Experto en Producto",
+      role: "Desarrollador Full Stack .NET",
       period: "Marzo 2024 – Julio 2026",
       location: "México",
       description: [
-        "Desarrollo y mantenimiento evolutivo/correctivo de aplicaciones web y servicios backend en C# y .NET Core.",
-        "Diseño y construcción de servicios y APIs RESTful para la integración de componentes frontend con bases de datos relacionales y plataformas empresariales (SAP Business One).",
-        "Atención, diagnóstico y corrección de incidencias (bugs) de software Nivel 2 en entornos productivos transaccionales.",
-        "Elaboración de consultas avanzadas, objetos de base de datos y procedimientos almacenados en SQL Server para asegurar rendimiento.",
-        "Pruebas de integración con Postman y control de versiones con Git/GitHub bajo metodología ágil Scrum."
+        "Participó en todo el ciclo de vida de desarrollo de aplicaciones empresariales, desde el análisis técnico y diseño hasta la implementación y mantenimiento en producción.",
+        "Diseñó y construyó APIs REST y servicios backend robustos utilizando C#, .NET Core (.NET 6/8) y Entity Framework Core para plataformas de alta concurrencia.",
+        "Desarrolló interfaces responsivas y modulares de alto rendimiento para el usuario final con Angular 16, React, TypeScript, HTML5 y CSS3.",
+        "Optimizó el rendimiento de aplicaciones y bases de datos en Microsoft SQL Server mediante análisis de planes de ejecución, refactorización de Stored Procedures y tuning de consultas complejas.",
+        "Implementó pruebas unitarias y buenas prácticas de desarrollo de software para asegurar la estabilidad, escalabilidad y calidad del código.",
+        "Colaboró activamente en equipos multidisciplinarios bajo marco de trabajo Scrum y gestión de versiones con Git.",
+        "Brindó asistencia de soporte nivel 2 y 3 a clientes directos en temas de timbrado y facturación (CFDI 4.0)."
       ],
-      technologies: ["C#", ".NET Core", "APIs REST", "Servicios SOAP", "SAP Business One", "SQL Server", "Postman", "Git / GitHub", "Scrum"]
+      technologies: ["C#", ".NET Core 6/8", "Entity Framework Core", "Angular 16", "React", "TypeScript", "SQL Server", "APIs REST", "xUnit / NUnit", "Git", "Scrum", "CFDI 4.0"]
     },
     {
       id: "exp-2",
       company: "Ximplify",
-      role: "Desarrollador .NET Jr",
+      role: "Desarrollador Web .NET Jr",
       period: "Abril 2022 – Febrero 2024",
       location: "México",
       description: [
-        "Desarrollo e integración Full Stack conectando interfaces frontend en Angular (JavaScript, HTML5, CSS3) con lógicas de negocio en C# y .NET.",
-        "Construcción de objetos de base de datos, vistas y queries en SQL Server para el soporte operativo de los sistemas web.",
-        "Ejecución de mantenimiento correctivo y aplicación de principios Clean Code y SOLID."
+        "Desarrolló y mantuvo aplicaciones web empresariales utilizando C#, .NET Framework, ASP.NET MVC, JavaScript, HTML5 y CSS3.",
+        "Creó consultas SQL relacionales, tablas, vistas y procedimientos almacenados en SQL Server para el soporte operativo de negocio.",
+        "Consumió e integró servicios Web API RESTful para el intercambio estructurado de datos entre frontend y backend.",
+        "Modeló prototipos para aplicaciones con Power Apps.",
+        "Participó en el desarrollo de portales web con Svelte, HTML, CSS y .NET."
       ],
-      technologies: ["Angular", "JavaScript", "HTML5", "CSS3", "C#", ".NET", "SQL Server", "Clean Code", "SOLID"]
+      technologies: ["C#", ".NET Framework", "ASP.NET MVC", "JavaScript", "HTML5", "CSS3", "SQL Server", "Web API REST", "Power Apps", "Svelte"]
     }
   ],
   projects: [
@@ -224,36 +228,39 @@ export const cvData: CVData = {
   ],
   skills: [
     {
-      category: "Back-End (.NET & C#)",
+      category: "Desarrollo Backend & .NET",
       skills: [
-        { name: "C#", level: "Advanced" },
-        { name: ".NET Core / .NET 6+", level: "Advanced" },
-        { name: "ASP.NET Web API", level: "Advanced" },
-        { name: "APIs RESTful / SOAP", level: "Advanced" }
+        { name: "C# / .NET Core (.NET 6, 7 y 8)", level: "Advanced" },
+        { name: "ASP.NET Core / Web API RESTful", level: "Advanced" },
+        { name: "Entity Framework Core & LINQ", level: "Advanced" },
+        { name: "Arquitectura Limpia, SOLID & DI", level: "Advanced" }
       ]
     },
     {
-      category: "Front-End (Web & UI)",
+      category: "Desarrollo Frontend Moderno",
       skills: [
-        { name: "Angular", level: "Intermediate" },
-        { name: "TypeScript / JavaScript", level: "Intermediate" },
-        { name: "HTML5 / CSS3 / Bootstrap", level: "Advanced" }
+        { name: "Angular (versiones 10 a 16)", level: "Advanced" },
+        { name: "React & TypeScript", level: "Intermediate" },
+        { name: "JavaScript (ES6+) / Svelte", level: "Advanced" },
+        { name: "HTML5 / CSS3 / Tailwind CSS", level: "Advanced" }
       ]
     },
     {
-      category: "Bases de Datos (SQL Server)",
+      category: "Bases de Datos & SQL Server",
       skills: [
         { name: "Microsoft SQL Server", level: "Advanced" },
-        { name: "Consultas Complejas / Tuning", level: "Advanced" },
-        { name: "Procedimientos Almacenados (SPs)", level: "Advanced" }
+        { name: "Modelado Relacional de Datos", level: "Advanced" },
+        { name: "Stored Procedures, Vistas & Funciones", level: "Advanced" },
+        { name: "Query Tuning & Planes de Ejecución", level: "Advanced" }
       ]
     },
     {
-      category: "Herramientas y Metodologías",
+      category: "Calidad & Control de Versiones",
       skills: [
-        { name: "Visual Studio / VS Code", level: "Advanced" },
-        { name: "Git / GitHub / Postman", level: "Advanced" },
-        { name: "Clean Code / SOLID / Scrum", level: "Advanced" }
+        { name: "Pruebas Unitarias (xUnit / NUnit)", level: "Advanced" },
+        { name: "Git / GitHub / Flujos de Ramas", level: "Advanced" },
+        { name: "Postman / Pruebas de APIs", level: "Advanced" },
+        { name: "Metodologías Ágiles (Scrum / Kanban)", level: "Advanced" }
       ]
     }
   ],

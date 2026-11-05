@@ -160,7 +160,21 @@
 
 <svelte:window onkeydown={handleKeyDown} />
 
-<div class="w-full py-4 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+<div class="w-full py-2 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
+  
+  <!-- Universal Exit Header to return to Classic Portfolio (Visible on both mobile & desktop) -->
+  <div class="w-full max-w-[1150px] mb-3 flex items-center justify-between px-2">
+    <div class="flex items-center gap-2 text-xs font-semibold text-slate-400">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span>Consola Switch Interactiva</span>
+    </div>
+    <button
+      onclick={startUnsnapping}
+      class="px-4 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold flex items-center gap-1.5 shadow-md border border-slate-700 active:scale-95 transition-all cursor-pointer"
+    >
+      <span>✕ Volver al Portafolio</span>
+    </button>
+  </div>
   
   <!-- Realistic 3D Nintendo Switch Body Wrapper (Optimized max-w-[1150px] for widescreen spacing) -->
   <div class="relative w-full max-w-[1150px] flex flex-col md:flex-row items-stretch select-none">
@@ -272,7 +286,7 @@
       >
         {#if isPowered}
           <ConsoleScreen 
-            selectedIndex={selectedIndex}
+            bind:selectedIndex={selectedIndex}
             bind:isEntered
             currentOption={currentOption}
             bind:systemBooted

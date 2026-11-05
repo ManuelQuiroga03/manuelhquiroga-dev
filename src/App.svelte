@@ -8,7 +8,6 @@
   import Projects from './components/Projects.svelte';
   import Footer from './components/Footer.svelte';
   import ConsoleView from './components/ConsoleView.svelte';
-  import IntroBanner from './components/IntroBanner.svelte';
   import { cvData } from './data/cv';
   import { fly, fade } from 'svelte/transition';
   import { toast } from './lib/toast.svelte';
@@ -24,8 +23,8 @@
     }
   }
   
-  // Svelte 5 Rune: viewMode determines whether we show the Switch console or classic scroll view
-  let viewMode = $state<'classic' | 'interactive'>('interactive');
+  // Svelte 5 Rune: viewMode defaults to 'classic' so recruiters see the CV immediately
+  let viewMode = $state<'classic' | 'interactive'>('classic');
 
   // Shared Joy-con assembly state between console body and footer triggers
   let assemblyState = $state<'detached' | 'snapping' | 'loaded' | 'un-snapping'>('detached');
@@ -175,19 +174,14 @@
     </main>
   {:else}
     <!-- Scrollable main CV document layout (Classic View) with Smooth Fade-in -->
-    <div in:fade={{ duration: 1000 }} class="flex-grow flex flex-col relative">
+    <div in:fade={{ duration: 600 }} class="flex-grow flex flex-col relative">
       
-      <!-- Fixed header that slides/fades down only when scrolling past the IntroBanner -->
-      <div class="fixed top-0 left-0 right-0 z-40 transition-all duration-500 transform {scrollY > 250 ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}">
-        <Header bind:viewMode />
-      </div>
+      <!-- Sticky Navigation Header with glassmorphism blur -->
+      <Header bind:viewMode />
 
       <main class="flex-grow">
       
-      <!-- Welcome Signature Logo & Mascot -->
-      <IntroBanner />
-      
-      <!-- Operator Bio & Contact Cards -->
+      <!-- Operator Bio & Contact Cards (Directly at the top for immediate impact) -->
       <Hero />
 
       <!-- Value Proposition / What I Solve Services Cards -->
